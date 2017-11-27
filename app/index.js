@@ -7,9 +7,15 @@
  * 
  * Created at 2017-11-24 16:00:49
  */
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {  BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
+import Game from './tic-tac-toe/Game';
+
 ReactDOM.render(
-        <h1>Hello, world!</h1>,
+        <Router>
+            <Route path="/" component={Game}/>
+        </Router>,
         document.getElementById('app')
         );
