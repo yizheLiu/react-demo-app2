@@ -1,5 +1,4 @@
-
-/* 
+/*
  * webpack.config.java
  * 
  * Copyright(c) 2007-2017 by Yingzhi Tech
@@ -26,8 +25,15 @@ module.exports = {
     },
     module: {
         loaders: [
-            {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
-            {test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/}
+            {
+                test: /\.js$/, loader: 'babel-loader',
+                query: {
+                    presets: ['es2015', 'stage-0', 'react'],
+                },
+                exclude: /node_modules/
+            },
+            {test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/},
+            {test: /\.css$/, use: ['style-loader', 'css-loader']}
         ]
     },
     plugins: [HtmlWebpackPluginConfig]

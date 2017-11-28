@@ -1,5 +1,4 @@
-
-/* 
+/*
  * index.java
  * 
  * Copyright(c) 2007-2017 by Yingzhi Tech
@@ -9,13 +8,23 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {  BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {
+    HashRouter,
+    Route,
+} from 'react-router-dom';
 
+import Home from './demo/page/Home';
 import Game from './tic-tac-toe/Game';
+import Demo from './demo/page/Demo';
 
 ReactDOM.render(
-        <Router>
-            <Route path="/" component={Game}/>
-        </Router>,
-        document.getElementById('app')
-        );
+    <HashRouter>
+        <div>
+            <Route exact path="/" component={Home}/>
+            <Route path="/Game" component={Game}/>
+            <Route path="/Demo" component={Demo}/>
+        </div>
+    </HashRouter>
+    ,
+    document.getElementById('app')
+);
